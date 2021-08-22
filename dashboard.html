@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img class="rounded-circle" src="images/logo.jpg" alt="" width="100" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link text-white" aria-current="page" href="#">PENDING</a>
+                    <a class="nav-link text-white" href="#accepted">ACCEPTED</a>
+                    <a class="nav-link text-white" href="#delivered">DELIVERED</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <h1 class="mx-5 mt-5 text-center bg-success text-white" id="orders">PENDING ORDERS</h1>
+    <table class="table table-hover " style="margin: 15px 30px;">
+        <thead>
+          <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Order details</th>
+            <th scope="col">Status</th>
+            <th scope="col">Handled By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>biryani</td>
+            <td>20 min far</td>
+            <td>Ali Raza</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Chiaomin</td>
+            <td>Not Prepared</td>
+            <td>Ahmed</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Indian Khausa</td>
+            <td>Not Prepared</td>
+            <td>Maaz</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+</body>
+</html>

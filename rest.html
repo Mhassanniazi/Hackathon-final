@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+     <!-- FIREBASE -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAwHNknO1bTqUDTBX2iHp5Ki3zFqhHD1lw",
+      authDomain: "restaurant-fef05.firebaseapp.com",
+      projectId: "restaurant-fef05",
+      storageBucket: "restaurant-fef05.appspot.com",
+      messagingSenderId: "701900683753",
+      appId: "1:701900683753:web:e6d87d901830a279013378",
+      measurementId: "G-H0665PWG75"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img class="rounded-circle" src="images/logo.jpg" alt="" width="100" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link text-white" aria-current="page" href="#">Home</a>
+                    <a class="nav-link text-white" href="#dishes">Add Dishes</a>
+                    <a class="nav-link text-white" href="dashboard.html">Dashboard</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 container mx-auto">
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+                    class="card-img-top" alt="..." width="100px" height="350px">
+                <div class="card-body">
+                    <h5 class="card-title">BIRYANI</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                    class="card-img-top" alt="..." width="100px" height="350px">
+                <div class="card-body">
+                    <h5 class="card-title">CHAOMIN</h5>
+                    <p class="card-text">This is a short card.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+                    class="card-img-top" alt="..." width="100px" height="350px">
+                <div class="card-body">
+                    <h5 class="card-title">Indian Food</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://images.unsplash.com/photo-1567337710282-00832b415979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=888&q=80"
+                    class="card-img-top" alt="..." width="100px" height="350px">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="mx-5 mt-5 text-center bg-success text-white" id="dishes">ADD DISHES</h1>
+    <!-- form for adding data -->
+    <form class="row g-3 needs-validation" style="margin: 15px 100px;padding-bottom: 200px;" onsubmit="add_data()" novalidate>
+        <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">Item Name</label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="name" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">Price</label>
+            <input type="text" class="form-control" id="validationCustom02" placeholder="price" required>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom03" class="form-label">Food Type</label>
+            <select class="form-select" id="validationCustom03" required>
+                <option selected disabled value="">Type..</option>
+                <option value="1">indian</option>
+                <option value="2">chinese</option>
+                <option value="3">pakistani</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a valid state.
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom04" class="form-label">Food Image</label>
+            <input type="file" class="form-control" id="validationCustom04" required>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Delivery Type</label>
+            <select class="form-select" id="validationCustom05" required>
+                <option selected disabled>Type...</option>
+                <option value="1">Free</option>
+                <option value="2">Paid</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a valid state.
+            </div><br><br>
+            <div class="col-12 mx-5 ">
+                <button class="btn btn-success" type="submit">Submit form</button>
+            </div>
+        </div></form>
+
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
+        <script src="app.js"></script>
+</body>
+
+</html>
